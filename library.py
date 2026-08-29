@@ -24,11 +24,7 @@ class Library:
             print(book)
         print("---------------------------\n")
 
-    # ==========================================
-    # NEW FEATURE TASK: Implement borrow_book
-    # ==========================================
     def borrow_book(self, title):
-        # Find the book by title.
         for book in self.books:
             if book.title == title:
                 if not book.is_borrowed:
@@ -39,7 +35,6 @@ class Library:
                     print(f"❌ Sorry, '{title}' is already borrowed.")
                     return
         print(f"❌ Sorry, '{title}' not found in the library.")
-    # ==========================================
 
 
 if __name__ == "__main__":
@@ -51,4 +46,4 @@ if __name__ == "__main__":
     my_library.add_book(book1)
     my_library.add_book(book2)
     
-    my_library.list_books() 
+    my_library.list_books()

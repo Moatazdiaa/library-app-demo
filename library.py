@@ -8,6 +8,7 @@ class Book:
         status = "Borrowed" if self.is_borrowed else "Available"
         return f"'{self.title}' by {self.author} - {status}"
 
+
 class Library:
     def __init__(self, name):
         self.name = name
@@ -23,9 +24,23 @@ class Library:
             print(book)
         print("---------------------------\n")
 
+    # ==========================================
+    # NEW FEATURE TASK: Implement borrow_book
+    # ==========================================
     def borrow_book(self, title):
-        pass
-    
+        # Find the book by title.
+        for book in self.books:
+            if book.title == title:
+                if not book.is_borrowed:
+                    book.is_borrowed = True
+                    print(f"✅ '{title}' has been borrowed successfully.")
+                    return
+                else:
+                    print(f"❌ Sorry, '{title}' is already borrowed.")
+                    return
+        print(f"❌ Sorry, '{title}' not found in the library.")
+    # ==========================================
+
 
 if __name__ == "__main__":
     my_library = Library("City Central Library")
@@ -36,5 +51,4 @@ if __name__ == "__main__":
     my_library.add_book(book1)
     my_library.add_book(book2)
     
-    my_library.list_books()
-"# Feature implemented successfully" 
+    my_library.list_books() 
